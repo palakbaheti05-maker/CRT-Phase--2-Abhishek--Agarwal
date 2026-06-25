@@ -1,0 +1,65 @@
+//Program 1
+//Binary Tree Preorder Traversal
+//Leetode 144
+class Solution {
+public:
+void traversal(TreeNode* root, vector<int> &ans) {
+    // base condition
+    if (root == nullptr) {
+        return;
+    }
+    // logic
+    ans.push_back (root -> val);
+    traversal (root -> left, ans);
+    traversal (root-> right, ans);
+}
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        traversal (root, ans);
+        return ans;
+    }
+};
+
+
+//Program 2
+//Binary Tree Inorder Traversal
+//Leetode 94
+class Solution {
+public:
+    void traversal(TreeNode* root, vector<int> &ans) {
+    // base condition
+    if (root == nullptr) {
+        return;
+    }
+    // logic
+    traversal (root -> left, ans);
+    ans.push_back (root -> val);
+    traversal (root-> right, ans);
+}
+    vector<int> inorderTraversal(TreeNode* root) {
+         vector<int> ans;
+        traversal (root, ans);
+        return ans;
+    }
+};
+
+
+//Program 3
+// Maximum Depth of Binary Tree
+//Leetode 104
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) {
+            return 0;
+        }
+        int lh = maxDepth(root -> left);
+        int rh = maxDepth(root -> right);
+
+        return max(lh,rh) + 1;
+    }
+};
+
+//Program 4
+//Minimum Depth of Binary Tree
+//Leetcode 111
