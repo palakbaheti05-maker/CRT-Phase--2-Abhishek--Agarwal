@@ -23,6 +23,30 @@ void traversal(TreeNode* root, vector<int> &ans) {
 
 //Program 2
 //Binary Tree Inorder Traversal
+//Leetcode 145
+class Solution {
+public:
+ void traversal(TreeNode* root, vector<int>&ans){
+    //BASE CONDITION
+    if(root==nullptr){
+        return;
+    }
+    //LOGIC
+        traversal(root->left,ans);
+        traversal(root->right,ans);
+        ans.push_back(root->val);
+   }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>ans;
+        traversal(root,ans);
+        return ans;
+        
+    }
+};
+
+
+//Program 3
+//Binary Tree Inorder Traversal
 //Leetode 94
 class Solution {
 public:
@@ -44,7 +68,7 @@ public:
 };
 
 
-//Program 3
+//Program 4
 // Maximum Depth of Binary Tree
 //Leetode 104
 class Solution {
@@ -60,6 +84,6 @@ public:
     }
 };
 
-//Program 4
+//Program 5
 //Minimum Depth of Binary Tree
 //Leetcode 111
