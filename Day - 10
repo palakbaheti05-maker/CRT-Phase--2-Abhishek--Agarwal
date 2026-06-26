@@ -21,5 +21,51 @@ public:
 
 
 
+
 //Program 2
-//
+//Same Tree
+//Leetcode 100
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+       if(p==nullptr && q==nullptr){
+        return true;
+       } 
+       if(p==nullptr || q==nullptr){
+        return false;
+       }
+       if(p->val!=q->val){
+        return false;
+       }
+     return  isSameTree (p->left,q->left)&& isSameTree(p->right,q->right);
+    }
+};
+
+
+
+
+//Program 3
+//Symmemtric Tree
+//Leetcode 101
+class Solution {
+public:
+bool traversal(TreeNode*left, TreeNode* right){
+    if(left==nullptr && right==nullptr){
+        return true;
+    }
+    if(left==nullptr ||right==nullptr){
+        return false;
+    }
+    if(left->val !=right->val){
+        return false;
+    }
+    return traversal(left->left,right->right)&&
+    traversal(left->right, right->left);
+}
+    bool isSymmetric(TreeNode* root) {
+      if(root==nullptr){
+        return true;
+      }  
+      return traversal(root->left, root->right);
+    }
+};
