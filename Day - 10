@@ -69,3 +69,26 @@ bool traversal(TreeNode*left, TreeNode* right){
       return traversal(root->left, root->right);
     }
 };
+
+
+
+//Program 4
+//Diameter of Binary Tree
+//Leetcode 543
+eclass Solution {
+public:
+int ans = 0;
+    int traversal (TreeNode* root){
+        if (root ==  nullptr) {
+            return 0;
+        }
+        int lh = traversal (root -> left);
+        int rh = traversal (root -> right);
+        ans = max(ans,lh + rh);
+        return max(lh,rh) + 1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        traversal (root);
+        return ans;
+    }
+};
